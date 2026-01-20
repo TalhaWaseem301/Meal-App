@@ -11,11 +11,11 @@ class MealRepository {
   MealRepository({required this.apiService});
 
   /// Get recipes from API
-  Future<RecipeResponse> getRecipes({int limit = 10}) async {
+  Future<RecipeResponse> getRecipes() async {
     try {
       final response = await apiService.get(
         ApiEndpoints.recipes,
-        queryParams: {'limit': limit},
+        queryParams: {},
       );
       final parsed =RecipeResponse.fromJson(response.data);
       print('🍽 Recipes count: ${parsed.recipes?.length}');
