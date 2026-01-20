@@ -4,10 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../shared/grid.dart';
 
 import '../../meal_provider.dart';
+import 'meal_screen.dart';
 
 
-class MealScreen extends ConsumerWidget {
-  const MealScreen({super.key});
+class CategoryScreen extends ConsumerWidget {
+  const CategoryScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -44,7 +45,14 @@ class MealScreen extends ConsumerWidget {
           return CuisineGridItem(
             cuisine: cuisine,
             onTap: () {
-             // viewModel.selectCuisine(cuisine);
+              //viewModel.selectCuisine(cuisine);
+              // Navigate to MenuScreen
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => MealScreen(cuisine: cuisine),
+                ),
+              );
             },
           );
         },

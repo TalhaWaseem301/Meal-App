@@ -23,7 +23,7 @@ class MealViewModel extends StateNotifier<MealState> {
           .toSet()
           .toList();
 
-      // Update state with recipes and cuisines
+
       state = state.copyWith(
         recipes: recipes,
         cuisines: cuisines,
@@ -41,6 +41,13 @@ class MealViewModel extends StateNotifier<MealState> {
 
   void selectCuisine(String cuisine) {
     state = state.copyWith(selectedCuisine: cuisine);
+  }
+
+  List<Recipes> get filteredRecipes {
+    if (state.selectedCuisine == null) return state.recipes;
+    return state.recipes
+        .where((r) => r.cuisine == state.selectedCuisine)
+        .toList();
   }
 
 
