@@ -2,6 +2,7 @@ import '../../data/model/recipe_response.dart';
 
 class MealState {
   final List<Recipes> recipes;
+  final List<String> favouriteMealIds;
   final List<String> cuisines;
   final bool isLoading;
   final String? error;
@@ -9,6 +10,7 @@ class MealState {
 
   MealState({
     this.recipes = const [],
+    this.favouriteMealIds=const[],
     this.cuisines = const [],
     this.isLoading = false,
     this.error,
@@ -17,6 +19,7 @@ class MealState {
 
   MealState copyWith({
     List<Recipes>? recipes,
+    List<String>? favouriteMealIds,
     List<String>? cuisines,
     bool? isLoading,
     String? error,
@@ -24,6 +27,7 @@ class MealState {
   }) {
     return MealState(
       recipes: recipes ?? this.recipes,
+      favouriteMealIds: favouriteMealIds ?? this.favouriteMealIds,
       cuisines: cuisines ?? this.cuisines,
       isLoading: isLoading ?? this.isLoading,
       error: error,

@@ -37,7 +37,7 @@ class RecipeCard extends StatelessWidget {
     super.key,
     required this.meal,
     required this.onSelectMeal,
-    this.traits = const {},
+    this.traits = const {}, required Null Function() onToggleFavorite,
   });
 
   @override

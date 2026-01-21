@@ -30,7 +30,7 @@ class CategoryScreen extends ConsumerWidget {
     final cuisines = state.cuisines;
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Cuisines")),
+    //  appBar: AppBar(title: const Text("Cuisines")),
       body: GridView.builder(
         padding: const EdgeInsets.all(16),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

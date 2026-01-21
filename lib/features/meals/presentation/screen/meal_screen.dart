@@ -37,7 +37,7 @@ class MealScreen extends ConsumerWidget {
               Icons.work: recipe.difficulty ?? 'N/A',
               Icons.star: '${recipe.rating?.toStringAsFixed(1) ?? '0'}',
               // You can add more dynamically if needed
-            },
+            }, onToggleFavorite: () {  },
           );
         },
       ),
