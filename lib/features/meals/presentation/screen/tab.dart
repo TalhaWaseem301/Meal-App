@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../shared/meals_item.dart';
+import '../../data/model/meal_type.dart';
 import '../../favourite_provider.dart';
+import '../../filter_provider.dart';
 import '../../meal_provider.dart';
 import 'category_screen.dart';
+import 'filter_screen.dart';
 import 'meal_detail_screen.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -32,6 +35,22 @@ class _TabsScreenState extends State<TabsScreen> {
 
         // 🔹 UI interaction data (favorites)
         final favouriteIds = ref.watch(favouriteProvider);
+        final filters = ref.watch(filterProvider);
+
+        // Favorites tab:
+        final favouriteMeals = mealState.recipes.where((meal) {
+          if (!favouriteIds.contains(meal.id.toString())) return false;
+          if (!filters.filters.containsValue(true)) return true;
+
+          if (filters.filters[MealType.Breakfast] == true &&
+              meal.mealType == "Breakfast") return true;
+          if (filters.filters[MealType.Dinner] == true &&
+              meal.mealType == "Dinner") return true;
+          if (filters.filters[MealType.Appetizer] == true &&
+              meal.mealType == "Appetizer") return true;
+
+          return false;
+        }).toList();
 
         Widget activePage;
         String activePageTitle;
@@ -88,6 +107,47 @@ class _TabsScreenState extends State<TabsScreen> {
           appBar: AppBar(
             title: Text(activePageTitle),
           ),
+          // ================= drawer =================
+          drawer: Drawer(
+            child: Column(
+              children: [
+                DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                  child: Center(
+                    child:  Text(
+                        'My Menu',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                )
+                ),
+                ListTile(
+                  leading: Icon(Icons.set_meal),
+                  title: Text("Meals"),
+                  onTap: (){},
+                ),
+                ListTile(
+                  leading: Icon(Icons.settings),
+                  title: Text("Filters"),
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => FilterScreen(),
+                      ),
+                    );
+
+                  },
+                ),
+              ],
+            ),
+          ),
+
           body: activePage,
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: _selectedPageIndex,

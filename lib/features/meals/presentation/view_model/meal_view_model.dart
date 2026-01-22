@@ -50,8 +50,4 @@ class MealViewModel extends StateNotifier<MealState> {
         .toList();
   }
 
-
-
-
-
 }

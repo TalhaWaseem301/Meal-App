@@ -45,7 +45,7 @@ class CategoryScreen extends ConsumerWidget {
           return CuisineGridItem(
             cuisine: cuisine,
             onTap: () {
-              //viewModel.selectCuisine(cuisine);
+              viewModel.selectCuisine(cuisine);
               // Navigate to MenuScreen
               Navigator.push(
                 context,
