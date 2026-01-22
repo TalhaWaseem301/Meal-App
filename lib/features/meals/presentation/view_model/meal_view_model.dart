@@ -51,19 +51,6 @@ class MealViewModel extends StateNotifier<MealState> {
   }
 
 
- void toggleFavorite(String mealId){
-    final isfavourite= state.favouriteMealIds.contains(mealId);
-
-    if(isfavourite)
-      {
-        final updateList= state.favouriteMealIds.where((id)=> id!=mealId).toList();
-        state=state.copyWith(favouriteMealIds: updateList);
-      }
-    else{
-      final updatedList = [...state.favouriteMealIds, mealId];
-      state = state.copyWith(favouriteMealIds: updatedList);
-    }
-  }
 
 
 

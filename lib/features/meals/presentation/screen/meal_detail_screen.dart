@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../data/model/recipe_response.dart';
+import '../../favourite_provider.dart';
 import '../../meal_provider.dart';
 
 class MealDetailScreen extends ConsumerWidget {
@@ -10,7 +11,9 @@ class MealDetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isFav = ref.watch(mealViewModelProvider).favouriteMealIds.contains(meal.id.toString());
+    final favourites = ref.watch(favouriteProvider);
+    final isFav = favourites.contains(meal.id.toString());
+
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.name ?? 'Recipe'),
@@ -18,8 +21,8 @@ class MealDetailScreen extends ConsumerWidget {
           IconButton(
             onPressed: () {
               ref
-                  .read(mealViewModelProvider.notifier)
-                  .toggleFavorite(meal.id.toString() );
+                  .read(favouriteProvider.notifier)
+                  .toggle(meal.id.toString());
             },
             icon: Icon(
               isFav ? Icons.star : Icons.star_border,
