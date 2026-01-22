@@ -10,8 +10,7 @@ class MealDetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isFav = ref.watch(mealViewModelProvider).favouriteMealIds.contains(meal.id);
-    final state = ref.watch(mealViewModelProvider);
+    final isFav = ref.watch(mealViewModelProvider).favouriteMealIds.contains(meal.id.toString());
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.name ?? 'Recipe'),

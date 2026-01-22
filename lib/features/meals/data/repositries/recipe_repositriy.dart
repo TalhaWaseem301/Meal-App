@@ -18,7 +18,6 @@ class MealRepository {
         queryParams: {},
       );
       final parsed =RecipeResponse.fromJson(response.data);
-      print('🍽 Recipes count: ${parsed.recipes?.length}');
       return parsed ;
     } on NetworkException catch (e) {
       throw e;

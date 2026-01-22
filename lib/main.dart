@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import 'features/meals/presentation/screen/category_screen.dart';
-import 'features/meals/presentation/screen/praticse.dart';
 import 'features/meals/presentation/screen/tab.dart';
 
 void main() {
