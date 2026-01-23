@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../../../shared/grid.dart';
-
 import '../../meal_provider.dart';
 import 'meal_screen.dart';
 
