@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1034784377714",
+    "project_id": "meal-3ff9d",
+    "storage_bucket": "meal-3ff9d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034784377714:android:15bf7c53c948141bdd6beb",
+        "android_client_info": {
+          "package_name": "com.example.meals_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2zM1vU3Zm9VbXTP3F6ExpHwYuUlhZS7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

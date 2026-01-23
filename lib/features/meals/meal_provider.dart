@@ -6,7 +6,7 @@ import '../../core/network/provider/api_provider.dart';
 import 'data/repositries/recipe_repositriy.dart';
 
 final mealRepositoryProvider = Provider<MealRepository>((ref) {
-  final apiService = ref.watch(apiServiceProvider); // Get ApiService instance
+  final apiService = ref.watch(apiServiceProvider);
   return MealRepository(apiService: apiService);
 });
 
